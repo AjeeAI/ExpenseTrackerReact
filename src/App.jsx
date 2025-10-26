@@ -21,7 +21,7 @@ export default function App() {
 
   const [filter, setFilter] = useState("All");
 
-  // persist expenses/budget
+  
   useEffect(() => {
     localStorage.setItem("expenses", JSON.stringify(expenses));
   }, [expenses]);
@@ -31,7 +31,7 @@ export default function App() {
   }, [budget]);
 
   function addExpense(exp) {
-    // ensure number
+    
     const newExp = { ...exp, id: Date.now() };
     setExpenses(prev => [newExp, ...prev]);
   }

@@ -1,7 +1,7 @@
 import React from "react";
 
 function formatCurrency(amount) {
-  // Use en-NG locale formatting. Fallback if unavailable.
+  
   try {
     return new Intl.NumberFormat("en-NG", {
       style: "currency",
