@@ -23,7 +23,9 @@ function App() {
 
   const [filter, setFilter] = useState("All");
 
-  
+  // 🟢 NEW: Track which expense is being edited
+  const [editingExpense, setEditingExpense] = useState(null);
+
   useEffect(() => {
     localStorage.setItem("expenses", JSON.stringify(expenses));
   }, [expenses]);
@@ -33,13 +35,28 @@ function App() {
   }, [budget]);
 
   function addExpense(exp) {
-    
-    const newExp = { ...exp, id: Date.now() };
-    setExpenses(prev => [newExp, ...prev]);
+    if (editingExpense) {
+      // 🟢 Update existing expense
+      setExpenses(prev =>
+        prev.map(e =>
+          e.id === editingExpense.id ? { ...exp, id: editingExpense.id } : e
+        )
+      );
+      setEditingExpense(null); // reset after editing
+    } else {
+      // 🟢 Add new expense
+      const newExp = { ...exp, id: Date.now() };
+      setExpenses(prev => [newExp, ...prev]);
+    }
   }
 
   function deleteExpense(id) {
     setExpenses(prev => prev.filter(e => e.id !== id));
+  }
+
+  // 🟢 New function for handling edits
+  function editExpense(expense) {
+    setEditingExpense(expense);
   }
 
   const filteredExpenses =
@@ -55,18 +72,21 @@ function App() {
 
       <Summary total={total} />
 
-      <ExpenseForm onAdd={addExpense} />
+      {/* 🟢 Pass editingExpense and setter to ExpenseForm */}
+      <ExpenseForm onAdd={addExpense} editingExpense={editingExpense} />
 
       <Filter filter={filter} onChange={setFilter} />
 
+      {/* 🟢 Pass the edit handler */}
       <ExpenseList
         expenses={filteredExpenses}
         onDelete={deleteExpense}
+        onEdit={editExpense}
       />
+
       <ExpenseStats expenses={filteredExpenses} />
     </div>
   );
 }
-
 
 export default App;

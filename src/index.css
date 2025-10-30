@@ -106,17 +106,26 @@ button:hover { background-color: var(--accent-dark); }
 }
 
 
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 .expense-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 8px;
+  min-width: 600px; 
 }
 
-.expense-table th, .expense-table td {
+.expense-table th,
+.expense-table td {
   border: 1px solid #e6e8eb;
   padding: 10px;
   text-align: center;
   font-size: 14px;
+  white-space: nowrap; 
 }
 
 .empty {
@@ -125,30 +134,73 @@ button:hover { background-color: var(--accent-dark); }
   margin: 12px 0;
 }
 
-
+/* Color categories */
 tbody tr td.category-Food { color: orange; }
 tbody tr td.category-Transport { color: blue; }
 tbody tr td.category-Entertainment { color: purple; }
 tbody tr td.category-Education { color: green; }
 tbody tr td.category-Other { color: gray; }
 
-.delete-btn {
+/* Action buttons */
+.delete-btn, .edit-btn {
   background: transparent;
   border: 0;
   font-size: 18px;
   cursor: pointer;
 }
+/* ===== Scrollable Table Wrapper ===== */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
 
-@media (max-width: 700px) {
-  .budget-section label, .filter-section label { min-width: 120px; }
-  .expense-form { flex-direction: column; align-items: stretch; }
-  input, select, button { width: 100%; }
-
-  .expense-table {
-  width: 90%;
+/* ===== Expense Table ===== */
+.expense-table {
   border-collapse: collapse;
+  width: 100%;
+  min-width: 600px;
   margin-top: 8px;
 }
+
+.expense-table th,
+.expense-table td {
+  border: 1px solid #e6e8eb;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  white-space: nowrap; 
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.edit-btn,
+.delete-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* ===== Responsive Fix ===== */
+@media (max-width: 768px) {
+  .table-container {
+    overflow-x: scroll;
+  }
+
+  .expense-table {
+    min-width: 500px;
+  }
+
+  .expense-table th,
+  .expense-table td {
+    padding: 8px;
+    font-size: 13px;
+  }
 }
 
 .stats-container {

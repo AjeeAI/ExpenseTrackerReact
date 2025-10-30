@@ -1,7 +1,6 @@
 import React from "react";
 
 function formatCurrency(amount) {
-  
   try {
     return new Intl.NumberFormat("en-NG", {
       style: "currency",
@@ -13,44 +12,46 @@ function formatCurrency(amount) {
   }
 }
 
-function ExpenseList({ expenses, onDelete }) {
+function ExpenseList({ expenses, onDelete, onEdit }) {
   if (!expenses.length) {
     return <p className="empty">No expenses yet.</p>;
   }
 
   return (
-    <table className="expense-table">
-      <thead>
-        <tr>
-          <th>Expense</th>
-          <th>Amount</th>
-          <th>Category</th>
-          <th>Date</th>
-          <th>Action</th>
+    <div className="table-container">
+  <table className="expense-table">
+    <thead>
+      <tr>
+        <th>Expense</th>
+        <th>Amount</th>
+        <th>Category</th>
+        <th>Date</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {expenses.map((exp) => (
+        <tr key={exp.id}>
+          <td>{exp.name}</td>
+          <td>{formatCurrency(exp.amount)}</td>
+          <td className={`category-${exp.category}`}>{exp.category}</td>
+          <td>{exp.date}</td>
+          <td className="actions">
+            <button className="edit-btn" onClick={() => onEdit(exp)}>✏️</button>
+            <button
+              className="delete-btn"
+              onClick={() => {
+                if (window.confirm("Delete this expense?")) onDelete(exp.id);
+              }}
+            >
+              🗑️
+            </button>
+          </td>
         </tr>
-      </thead>
-      <tbody>
-        {expenses.map((exp) => (
-          <tr key={exp.id}>
-            <td>{exp.name}</td>
-            <td>{formatCurrency(exp.amount)}</td>
-            <td className={`category-${exp.category}`}>{exp.category}</td>
-            <td>{exp.date}</td>
-            <td>
-              <button
-                className="delete-btn"
-                onClick={() => {
-                  if (window.confirm("Delete this expense?")) onDelete(exp.id);
-                }}
-                title="Delete"
-              >
-                🗑️
-              </button>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+      ))}
+    </tbody>
+  </table>
+</div>
   );
 }
 
