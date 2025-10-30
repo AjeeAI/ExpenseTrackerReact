@@ -4,6 +4,8 @@ import ExpenseForm from "./components/ExpenseForm";
 import Filter from "./components/Filter";
 import ExpenseList from "./components/ExpenseList";
 import Summary from "./components/Summary";
+import ExpenseStats from "./components/ExpenseStats";
+import BudgetDisplay from "./components/BudgetDisplay";
 
 export default function App() {
   const [expenses, setExpenses] = useState(() => {
@@ -48,7 +50,7 @@ export default function App() {
   return (
     <div className="container">
       <h1>Personal Expense Tracker</h1>
-
+      <BudgetDisplay budget={budget} expenses={expenses} onSetBudget={setBudget} />
       <BudgetSetter budget={budget} setBudget={setBudget} total={total} />
 
       <Summary total={total} />
@@ -61,6 +63,7 @@ export default function App() {
         expenses={filteredExpenses}
         onDelete={deleteExpense}
       />
+      <ExpenseStats expenses={filteredExpenses} />
     </div>
   );
 }
