@@ -13,7 +13,7 @@ function formatCurrency(amount) {
   }
 }
 
-export default function ExpenseList({ expenses, onDelete }) {
+function ExpenseList({ expenses, onDelete }) {
   if (!expenses.length) {
     return <p className="empty">No expenses yet.</p>;
   }
@@ -53,3 +53,5 @@ export default function ExpenseList({ expenses, onDelete }) {
     </table>
   );
 }
+
+export default ExpenseList;

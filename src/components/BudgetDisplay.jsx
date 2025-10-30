@@ -27,12 +27,9 @@ const BudgetDisplay = ({ budget, expenses, onSetBudget }) => {
       <h2>Monthly Budget Overview</h2>
 
       <div className="budget-input-container">
-        <input
-          type="number"
-          placeholder="Enter budget"
-          value={budget}
-          onChange={handleBudgetChange}
-        />
+       <div>
+        {budget}
+       </div>
       </div>
 
       <div className="budget-card">

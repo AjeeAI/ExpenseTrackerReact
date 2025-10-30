@@ -7,7 +7,7 @@ import Summary from "./components/Summary";
 import ExpenseStats from "./components/ExpenseStats";
 import BudgetDisplay from "./components/BudgetDisplay";
 
-export default function App() {
+function App() {
   const [expenses, setExpenses] = useState(() => {
     try {
       return JSON.parse(localStorage.getItem("expenses")) || [];
@@ -67,3 +67,6 @@ export default function App() {
     </div>
   );
 }
+
+
+export default App;

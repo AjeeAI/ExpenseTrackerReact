@@ -12,10 +12,12 @@ function formatCurrency(amount) {
   }
 }
 
-export default function Summary({ total }) {
+function Summary({ total }) {
   return (
     <div className="summary">
       <h2>Total Spent: <span id="totalAmount">{formatCurrency(total)}</span></h2>
     </div>
   );
 }
+
+export default Summary;

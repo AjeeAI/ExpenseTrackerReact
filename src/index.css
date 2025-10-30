@@ -178,6 +178,7 @@ tbody tr td.category-Other { color: gray; }
 
 .category-breakdown {
   margin-top: 20px;
+  padding-top: 20px;
 }
 
 .category-breakdown ul {

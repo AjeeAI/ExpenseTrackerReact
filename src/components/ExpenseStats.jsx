@@ -59,7 +59,7 @@ const ExpenseStats = ({ expenses }) => {
       <div className="category-breakdown">
         <h3>Spending Breakdown</h3>
         <div className="chart-wrapper">
-          <ResponsiveContainer width="100%" height={300}>
+          <ResponsiveContainer width="100%" height={300} >
             <PieChart>
               <Pie
                 data={chartData}

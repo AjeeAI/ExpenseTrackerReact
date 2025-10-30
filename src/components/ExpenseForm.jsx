@@ -8,7 +8,7 @@ const defaultCategories = [
   "Other",
 ];
 
-export default function ExpenseForm({ onAdd }) {
+function ExpenseForm({ onAdd }) {
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
   const [category, setCategory] = useState(defaultCategories[0]);
@@ -73,3 +73,5 @@ export default function ExpenseForm({ onAdd }) {
     </form>
   );
 }
+
+export default ExpenseForm;

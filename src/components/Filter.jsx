@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Filter({ filter, onChange }) {
+function Filter({ filter, onChange }) {
   const opts = ["All", "Food", "Transport", "Entertainment", "Education", "Other"];
   return (
     <div className="filter-section">
@@ -19,3 +19,5 @@ export default function Filter({ filter, onChange }) {
     </div>
   );
 }
+
+export default Filter;

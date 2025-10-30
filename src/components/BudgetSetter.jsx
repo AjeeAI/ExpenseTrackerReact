@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function BudgetSetter({ budget, setBudget, total }) {
+function BudgetSetter({ budget, setBudget, total }) {
   const [value, setValue] = useState(budget || "");
 
   function handleSet() {
@@ -33,3 +33,5 @@ export default function BudgetSetter({ budget, setBudget, total }) {
     </div>
   );
 }
+
+export default BudgetSetter;
