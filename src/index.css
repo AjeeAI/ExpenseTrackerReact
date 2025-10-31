@@ -1,5 +1,6 @@
 :root{
-  --bg: #f4f6f8;
+  /* --bg: #f4f6f8; */
+  --bg: #ffffff
   --card: #ffffff;
   --accent: #0078d7;
   --accent-dark: #005fa3;
@@ -23,7 +24,7 @@ body {
   background: var(--card);
   padding: 22px;
   border-radius: var(--radius);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  /* box-shadow: 0 6px 20px rgba(0,0,0,0.06); */
 }
 
 h1 {
@@ -207,7 +208,7 @@ tbody tr td.category-Other { color: gray; }
   background: #fff;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  /* box-shadow: 0 0 10px rgba(0,0,0,0.1); */
   margin-top: 20px;
 }
 
@@ -225,7 +226,7 @@ tbody tr td.category-Other { color: gray; }
   background: #f9fafc;
   border-radius: 10px;
   padding: 15px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.05);
+  /* box-shadow: 0 0 5px rgba(0,0,0,0.05); */
 }
 
 .category-breakdown {
@@ -258,7 +259,7 @@ tbody tr td.category-Other { color: gray; }
   background: #fff;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  /* box-shadow: 0 0 10px rgba(0,0,0,0.1); */
   margin-top: 20px;
 }
 
